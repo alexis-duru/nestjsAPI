@@ -1,11 +1,10 @@
-import { describe, it } from 'node:test';
-import assert from 'node:assert/strict';
+import { strict as assert } from 'assert';
 import {
   getCommentsFromText,
   createMarkdownFromComments,
   startIdentifier,
   endIdentifier,
-} from './index.ts/index.ts';
+} from './index';
 
 const singleCommentInput = `
 ${startIdentifier}
@@ -33,7 +32,8 @@ const commentsArray = [
 ];
 
 export const expectedMarkdown =
-  '# Documentation\n\n  > This is a comment\n\n_line 5_\n\n---\n\n\n> This is a second comment\n\n_line 10_\n\n---\n\n';
+'# Documentation\n  > This is a comment\n\n_line 5_\n\n---\n\n\n> This is a second comment\n\n_line 10_\n\n---\n\n'
+
 
 describe('Get comments from text', () => {
   it('add a single comment to the comments list', () => {

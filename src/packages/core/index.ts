@@ -44,13 +44,10 @@ export function getCommentsFromText(text: string): Comment[] {
 
 export function createMarkdownFromComments(comments: Comment[]): string {
   let markdown = `# Documentation\n  `;
-
   const markdownComments = comments.map((comment) => {
     return `> ${comment.text}${mdBlankLine}_line ${comment.line}_${mdSeparator}`;
   });
-
   markdown += markdownComments.join('\n');
-
   return markdown;
 }
 
