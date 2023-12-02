@@ -16,10 +16,18 @@ export function getCommentsFromText(text: string): Comment[] {
     text: '',
     line: null,
   };
-  const formattedText = text.split('\n').entries();
+
+  if (typeof text !== 'string') {
+    console.error('Expected text to be a string, but got:', text);
+    return comments;
+  }
+
+  const formattedText = text.split('\n');
   let inComment = false;
 
-  for (const [index, line] of formattedText) {
+  for (let index = 0; index < formattedText.length; index++) {
+    const line = formattedText[index];
+
     if (inComment) {
       if (!line.includes(endIdentifier)) {
         comment.text += line;

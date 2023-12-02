@@ -12,6 +12,10 @@ function getCommentsFromText(text) {
         text: '',
         line: null,
     };
+    if (typeof text !== 'string') {
+        console.error('Expected text to be a string, but got:', text);
+        return comments;
+    }
     const formattedText = text.split('\n').entries();
     let inComment = false;
     for (const [index, line] of formattedText) {
