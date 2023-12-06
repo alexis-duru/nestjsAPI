@@ -1,22 +1,22 @@
-import { writeFile, readFile } from "node:fs/promises";
-import path from "node:path";
-import { generateDocumentation } from "./core/index.mjs";
+import { writeFile, readFile } from 'node:fs/promises';
+import path from 'node:path';
+import { generateDocumentation } from './core/index.mjs';
 
 export async function createDocument(pathOfFileIn, pathOfFileOut) {
   const rootDir = process.cwd();
   const filePath = path.join(rootDir, pathOfFileIn);
 
   try {
-    const file = await readFile(filePath, "utf-8");
+    const file = await readFile(filePath, 'utf-8');
     const documentation = generateDocumentation(file);
-    let outputPath
+    let outputPath;
     if (!pathOfFileOut) {
-      pathOfFileOut = pathOfFileIn.replace(/\.mjs$/, "");
+      pathOfFileOut = pathOfFileIn.replace(/\.mjs$/, '');
     }
     if (pathOfFileOut.endsWith('.md')) {
-      outputPath = path.join(rootDir, pathOfFileOut)
+      outputPath = path.join(rootDir, pathOfFileOut);
     } else {
-      outputPath = path.join(rootDir, pathOfFileOut + ".md")
+      outputPath = path.join(rootDir, pathOfFileOut + '.md');
     }
     writeFile(outputPath, documentation);
   } catch (e) {
