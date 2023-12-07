@@ -13,3 +13,9 @@
 > Typescript (en réfléchissant bien aux structures qu’on manipule, aux entrées et sorties de fonctions...)
 
 > Un README qui détaille votre parcours de migration, les étapes, les + et les -, les docs / réponses SO utilisées...
+
+Les deux commande
+Avec commander :
+node src/packages/cli.mjs --filepath src/playground/test.mjs --fileout src/playground/resultat.md
+Avec nest-commander :
+node dist/packages/Nestcommand/main.js --filepath src/playground/test.mjs --fileout src/playground/testnest.md

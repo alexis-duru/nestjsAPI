@@ -1,6 +1,6 @@
 import { writeFile, readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { generateDocumentation } from './core/index.mjs';
+import { generateDocumentation } from '../../dist/packages/core/index.js';
 
 export async function createDocument(pathOfFileIn, pathOfFileOut) {
   const rootDir = process.cwd();
